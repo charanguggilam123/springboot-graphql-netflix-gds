@@ -1,0 +1,32 @@
+# defaulting value of minRating to 0
+# If value provided in variables that takes precedence
+query allAuthors($minRating: Int!=0){
+  allAuthors{
+    id
+    name
+    books(bookFilter:{minRating:$minRating}){
+      name
+      rating{
+				# stars is alias for value.
+        #Anything can be given as alias        
+        stars:value
+      }
+    }
+  }
+
+}
+
+query getAuthorById($id:ID!,$minRating: Int!=0){
+  authorById(id:$id){
+    id
+    name
+    dob
+    books(bookFilter:{minRating:$minRating}){
+      name
+      rating{
+		# stars is alias for value         
+        stars:value
+      } 
+    }
+  }
+}

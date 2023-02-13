@@ -1,0 +1,17 @@
+type Query{
+
+    allAuthors: [Author]
+    authorById(id:ID!): Author
+}
+
+type Mutation{
+    addAuthor(author:AuthorInput): Author
+    deleteAuthor(id:ID!): Author
+}
+
+type Subscription{
+
+    authorAdded:Author
+
+
+}

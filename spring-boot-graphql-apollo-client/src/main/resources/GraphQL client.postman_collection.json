@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "15502fb0-d765-4194-b065-4dcbba6327bf",
+		"name": "GraphQL client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get based on ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJxd2VydHlAZ21haWwuY29tIiwiaWF0IjoxNjcyODI4ODIzLCJleHAiOjE2NzI4MzI0MjN9.55W2dgXHv2u050y-sKcFaIy32unrmTGvQELgKHrKG_4",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"SAi\",\r\n    \"lastName\":\"Charan\",\r\n    \"email\":\"qwerty@gmail.com\",\r\n    \"password\":\"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/authors/4?minRating=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"authors",
+						"4"
+					],
+					"query": [
+						{
+							"key": "minRating",
+							"value": "5"
+						}
+					]
+				},
+				"description": "Query param is optional"
+			},
+			"response": []
+		},
+		{
+			"name": "All Authors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJxd2VydHlAZ21haWwuY29tIiwiaWF0IjoxNjcyODI4ODIzLCJleHAiOjE2NzI4MzI0MjN9.55W2dgXHv2u050y-sKcFaIy32unrmTGvQELgKHrKG_4",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"SAi\",\r\n    \"lastName\":\"Charan\",\r\n    \"email\":\"qwerty@gmail.com\",\r\n    \"password\":\"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/authors?minRating=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"authors"
+					],
+					"query": [
+						{
+							"key": "minRating",
+							"value": "4"
+						}
+					]
+				},
+				"description": "Query param is optional"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Author",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJxd2VydHlAZ21haWwuY29tIiwiaWF0IjoxNjcyODI4ODIzLCJleHAiOjE2NzI4MzI0MjN9.55W2dgXHv2u050y-sKcFaIy32unrmTGvQELgKHrKG_4",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Prasanth Neel\",\r\n    \"dob\":\"1982-08-10\",\r\n    \"books\":[\r\n      {\"name\":\"KGF\",\"pages\":203,\"price\":499,\"rating\":\"FIVE_STARS\"},\r\n      {\"name\":\"KGF Part 2\",\"pages\":310,\"price\":599,\"rating\":\"FOUR_STARS\"}\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/add-author",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"add-author"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

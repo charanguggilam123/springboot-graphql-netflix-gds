@@ -1,0 +1,22 @@
+type Book{
+    id:ID!
+    name: String
+    pages:Int
+    price:Int
+    store: Url
+    rating:Rating
+
+}
+
+input BookFilter{
+	minRating: Int!
+}
+
+input BookInput{
+    name: String!
+    pages:Int!
+    price:Int!
+    rating: RatingInput
+    publisher: String
+
+}

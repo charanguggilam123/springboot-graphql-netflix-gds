@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.7</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.gsc.demo</groupId>
+	<artifactId>spring-boot-graphql-apollo-client</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-boot-graphql-apollo-client</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>17</java.version>
+		<apollo.version>3.7.3</apollo.version>
+
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.apollographql.apollo3</groupId>
+			<artifactId>apollo-runtime-jvm</artifactId>
+			<version>${apollo.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.apollographql.apollo3</groupId>
+			<artifactId>apollo-rx3-support</artifactId>
+			<version>${apollo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.github.aoudiamoncef</groupId>
+				<artifactId>apollo-client-maven-plugin</artifactId>
+				<version>5.0.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<skip>false</skip>
+							<services>
+								<client-api>
+									<enabled>true</enabled>
+						<!--			<includes>
+										<include>**/*.graphqls</include>
+										<include>**/*.gql</include>
+										<include>**/*.json</include>
+									</includes> -->
+									<compilationUnit>
+										<name>client</name>
+										<outputDirectory>
+                                            ${project.build.directory}/generated-sources/graphql-client/generated/
+                                        </outputDirectory>
+										<compilerParams>
+											<rootFolders>
+												<rootFolder>${project.basedir}/src/main/graphql/client/</rootFolder>
+											</rootFolders>
+										</compilerParams>
+									</compilationUnit>
+									<!-- If schema file is not kept-->
+									<!--<introspection>
+										<enabled>true</enabled>
+										<endpoint>http://localhost:8080/graphql</endpoint>
+									</introspection> -->
+								</client-api>
+							</services>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

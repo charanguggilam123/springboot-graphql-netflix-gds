@@ -1,0 +1,15 @@
+scalar Date
+scalar Url
+type Author{
+    id:ID!
+    name: String
+    dob: Date
+    books(bookFilter:BookFilter): [Book]
+}
+
+
+input AuthorInput{
+    name: String!
+    dob: Date!
+    books: [BookInput]
+}

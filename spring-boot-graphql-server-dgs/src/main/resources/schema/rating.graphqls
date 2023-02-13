@@ -1,0 +1,15 @@
+type Rating{
+    value: String
+}
+
+enum RatingInput{
+    FIVE_STARS,
+    FOUR_STARS,
+    THREE_STARS,
+    TWO_STARS,
+    ONE_STARS
+}
+
+enum Genre{
+    FANTASY,ROMANCE,COMEDY,SCI_FI,ACTION,THRILLER
+}

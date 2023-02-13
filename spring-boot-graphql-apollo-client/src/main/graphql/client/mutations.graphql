@@ -1,0 +1,10 @@
+mutation addAuthor($author:AuthorInput!){
+  addAuthor(author:$author){
+    id
+    name
+    books{
+      id
+      name
+    }
+  }
+}
